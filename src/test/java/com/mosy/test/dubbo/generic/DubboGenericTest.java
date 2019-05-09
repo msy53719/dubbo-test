@@ -25,7 +25,7 @@ public class DubboGenericTest {
 		ReferenceConfig<GenericService> reference = new ReferenceConfig<GenericService>();
 		reference.setApplication(application);
 		reference.setRegistry(registry);
-		reference.setInterface("com.project.framework.service.UserService");
+		reference.setInterface("com.generic.server.serivce.UserService");
 		reference.setGeneric(true);
 		ReferenceConfigCache cache = ReferenceConfigCache.getCache();
 		GenericService genericService = cache.get(reference);
@@ -40,7 +40,7 @@ public class DubboGenericTest {
 		map.put("age", "19");
 		map.put("address", "北京市西城区三里河");
 
-		Object result = genericService.$invoke("reginseter", new String[] { "com.project.framework.dto.UserDto" },
+		Object result = genericService.$invoke("reginseter", new String[] { "com.generic.server.dto.UserDto" },
 				new Object[] { map });
 		System.out.println(result);
 		log.debug(JSON.toJSONString(result));
